@@ -15,9 +15,10 @@ class TimeMap:
         l,r=0,len(values)-1
         while l<=r:
             mid=(l+r)//2
-            if values[mid][1]==timestamp: return values[mid][0]
-            elif values[mid][1]<timestamp:
-                res=values[mid][0]
+            ts,val=values[mid][1],values[mid][0]
+            if ts==timestamp: return val
+            elif ts<timestamp:
+                res=val
                 l=mid+1
             else: r=mid-1
         return res
